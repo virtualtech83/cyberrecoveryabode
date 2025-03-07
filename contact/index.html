@@ -442,7 +442,24 @@
         </div>
     </nav>
 </div>
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
 
+        if (toggleButton && menu) {
+            toggleButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                menu.classList.toggle('hidden');
+                toggleButton.classList.toggle('active');
+                console.log('Menu toggled. Is hidden:', menu.classList.contains('hidden'));
+            });
+        } else {
+            console.error('Menu toggle elements not found');
+        }
+    });
+</script>
 
 
     </section>
