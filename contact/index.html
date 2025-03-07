@@ -781,6 +781,25 @@
   <!-- Google tag end -->
 
   
+ <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuToggle = document.getElementById("menu-toggle");
+            var menu = document.getElementById("menu");
+
+            if (menuToggle && menu) {
+                menuToggle.addEventListener("click", function() {
+                    menu.classList.toggle("active");
+                });
+            }
+
+            // Hide menu when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                    menu.classList.remove("active");
+                }
+            });
+        });
+    </script>
 
 
 </body></html>
