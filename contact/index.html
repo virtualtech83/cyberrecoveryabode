@@ -16,7 +16,15 @@
   <script src="/static/js/preloadImage.js" async=""></script>
   
   <style>
-    
+    /* Hide menu initially */
+.mobile-menu {
+    display: none;
+}
+
+/* Show menu when the button or menu is focused */
+.menu-container:focus-within .mobile-menu {
+    display: block;
+}
     
         /* Hide the menu initially */
         #menu { 
@@ -441,7 +449,7 @@
     </button>
 
     <!-- Mobile Menu (Initially Hidden) -->
-    <div class="absolute z-50 top-full w-full flex flex-col gap-3 bg-white rounded-b-3xl shadow-xl dark:bg-black md:hidden mobile-menu">
+    <div  class="absolute z-50 top-full w-full flex flex-col gap-3 bg-white rounded-b-3xl shadow-xl dark:bg-black md:hidden mobile-menu">
         <nav class="w-full gap-[8px] px-7 flex flex-col text-[14px]" style="padding-top: 20px; padding-bottom: 20px;">
             <button class="flex justify-center items-center w-full px-6 py-3 text-black text-left whitespace-nowrap cursor-pointer rounded-full hover:bg-black/5 hover:transition-all duration-100 dark:text-white dark:hover:text-white/60" style="height: 72px;">
                 <div class="_editable_jwu41_1" data-link="link=home&amp;target=_blank&amp;text=Home">Home</div>
