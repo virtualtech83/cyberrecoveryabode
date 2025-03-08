@@ -518,7 +518,28 @@
   <!-- Google tag start -->
   
   <!-- Google tag end -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.querySelector(".navbar-toggler");
+    var menu = document.querySelector("#navbarNav");
 
+    // Stop Bootstrap from closing the menu too quickly
+    menuToggle.addEventListener("click", function(event) {
+        if (!menu.classList.contains("show")) {
+            setTimeout(function() {
+                menu.classList.add("show");
+            }, 50); // Small delay to prevent auto-close
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function(event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove("show");
+        }
+    });
+});
+</script>
   
 
 
