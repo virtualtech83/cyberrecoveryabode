@@ -504,18 +504,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!menuToggle || !mobileMenu) {
         console.error("Error: Menu toggle button or dropdown not found!");
-        return; // Stop script if elements are missing
+        return;
     }
 
     menuToggle.addEventListener("click", function(event) {
         console.log("Menu button clicked!"); // Debugging log
-        mobileMenu.classList.toggle("hidden"); // Show/hide menu
+        console.log("Current menu classes:", mobileMenu.classList); // Check class list
+
+        // Check if menu is hidden, then show or hide it
+        if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.style.display = "block"; // Ensure it's visible
+            mobileMenu.classList.remove("hidden");
+        } else {
+            mobileMenu.style.display = "none"; // Ensure it's hidden
+            mobileMenu.classList.add("hidden");
+        }
+
         event.stopPropagation();
     });
 
     // Close menu when clicking outside
     document.addEventListener("click", function(event) {
         if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.style.display = "none"; 
             mobileMenu.classList.add("hidden");
         }
     });
